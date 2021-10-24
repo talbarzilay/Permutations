@@ -7,7 +7,7 @@
  * @returns an arry of all the permutatoins of the given string, only uniques. 
  */
 function permutations(string) {
-    return [];
+    return uniquify(buildPermutations(string.split('')));
 }
 
 // ----------------------------------------- "private" methods -----------------------------------------
