@@ -11,6 +11,22 @@ describe('permutations', () => {
         expect(permutations('ab').sort())       .toStrictEqual(['ab', 'ba'].sort());
         expect(permutations('aabb'))            .toStrictEqual(['aabb', 'abab', 'abba', 'baab', 'baba', 'bbaa'].sort());
     });
+
+    //exstra tests
+    it('examples from description', () => { 
+        expect(permutations(''))                    .toStrictEqual(['']);
+        expect(permutations('aaa'))                 .toStrictEqual(['aaa']);
+        expect(permutations('abc').sort())          .toStrictEqual(         [   'cab', 'cba', 'acb', 'bca', 'abc', 'bac'].sort());
+        expect(permutations('abcd').sort())         .toStrictEqual(uniquify([   'dcab', 'dcba', 'dacb', 'dbca', 'dabc', 'dbac',
+                                                                                'cdab', 'cdba', 'adcb', 'bdca', 'adbc', 'bdac',
+                                                                                'cadb', 'cbda', 'acdb', 'bcda', 'abdc', 'badc',
+                                                                                'cabd', 'cbad', 'acbd', 'bcad', 'abcd', 'bacd']).sort());
+        expect(permutations('abac').sort())         .toStrictEqual(uniquify([   'acab', 'acba', 'aacb', 'abca', 'aabc', 'abac',
+                                                                                'caab', 'caba', 'aacb', 'baca', 'aabc', 'baac',
+                                                                                'caab', 'cbaa', 'acab', 'bcaa', 'abac', 'baac',
+                                                                                'caba', 'cbaa', 'acba', 'bcaa', 'abca', 'baca']).sort());
+        
+    });
 });
 
 // ----------------------------------------- "private" methods tests -----------------------------------------
