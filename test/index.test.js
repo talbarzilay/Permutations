@@ -58,7 +58,7 @@ describe('buildPermutations', function() {
     it('test edge cases', function() {
         expect(buildPermutations(undefined))    .toStrictEqual(undefined);
         expect(buildPermutations(null))         .toStrictEqual(null);
-        expect(buildPermutations([]))           .toStrictEqual([]);
+        expect(buildPermutations([]))           .toStrictEqual(['']);
     });
 
     // test a "normal" run of the function

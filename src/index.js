@@ -28,7 +28,25 @@ function copyAndRemoveElement(array, index) {
  * @returns all of the posible strings that cab be created by permutations of the chars in the given array 
  */
 function buildPermutations(array) {
-    return [];
+    const result = [];
+  
+    // Stopping condition
+    if(array.length === 0) {
+        return [''];
+    }
+  
+    //For each item in the chars array, use it as the first char, than recursivly permut the remaining ones
+    for (let loc = 0; loc < array.length; loc++){
+        const currentChar = array[loc];
+        const remainsPerms = buildPermutations(copyAndRemoveElement(array, loc)); // permut the rest of the array, but without the current item that is used as the first char
+  
+        // attached the current first char to each of the given permutations
+        for (const permOfRest of remainsPerms){
+            result.push(currentChar + permOfRest);
+        }
+    }
+ 
+  return result;
 }
 
 
