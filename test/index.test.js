@@ -1,6 +1,6 @@
 //This file cintains the tests for the required functionality
 
-import { permutations, copyAndRemoveElement } from '../src/index';
+import { permutations, copyAndRemoveElement, buildPermutations } from '../src/index';
 
 // test the permutations function
 describe('permutations', function() {
@@ -47,5 +47,28 @@ describe('copyAndRemoveElement', function() {
         expect(copyAndRemoveElement(['a', 'b','a', 'd', 'a'], 1))   .toStrictEqual( ['a', 'a', 'd', 'a']);
         expect(copyAndRemoveElement(['a', 'b','a', 'd', 'a'], 0))   .toStrictEqual( ['b', 'a', 'd', 'a']);
         expect(copyAndRemoveElement(['a', 'a','a', 'd', 'a'], 3))   .toStrictEqual( ['a', 'a', 'a', 'a']);
+    });
+});
+
+
+// test the buildPermutations function
+describe('buildPermutations', function() {
+    
+    //Test special edgecasses
+    it('test edge cases', function() {
+        expect(buildPermutations(undefined))    .toStrictEqual(undefined);
+        expect(buildPermutations(null))         .toStrictEqual(null);
+        expect(buildPermutations([]))           .toStrictEqual([]);
+    });
+
+    // test a "normal" run of the function
+    it('test "normal" cases', function() {
+        expect(buildPermutations(['a']))                .toStrictEqual(['a']);
+        expect(buildPermutations(['a', 'a']))           .toStrictEqual(['aa']);
+        expect(buildPermutations(['a', 'b']).sort())    .toStrictEqual(['aa', 'ba'].sort());
+        expect(buildPermutations(['b', 'a']).sort())    .toStrictEqual(['aa', 'ba'].sort());
+
+        expect(buildPermutations(['b', 'a', 'c']).sort())    .toStrictEqual(['caa', 'cba', 'aca', 'bca', 'aac', 'bac'].sort());
+        expect(buildPermutations(['b', 'a', 'a']).sort())    .toStrictEqual(['baa', 'aba', 'aab'].sort());
     });
 });
