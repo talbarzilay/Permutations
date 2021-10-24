@@ -11,3 +11,17 @@ function permutations(string) {
 }
 
 // ----------------------------------------- "private" methods -----------------------------------------
+
+/**
+ * create a copy of a given array, but without a given elenet in the given index.
+ * @param {*} array the array to create a copy of
+ * @param {*} index the index to not include in the copy
+ */
+function copyAndRemoveElement(array, index) {
+    return Array.isArray(array) ? array.filter(function(v, location) { return location !== index }) : array;
+}
+
+
+
+// ----------------------------------------- export methods -----------------------------------------
+export {permutations, copyAndRemoveElement}
