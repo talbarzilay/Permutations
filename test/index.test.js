@@ -1,6 +1,6 @@
 //This file cintains the tests for the required functionality
 
-import { permutations, copyAndRemoveElement, buildPermutations } from '../src/index';
+import { permutations, copyAndRemoveElement, uniquify, buildPermutations } from '../src/index';
 
 // test the permutations function
 describe('permutations', function() {
@@ -50,6 +50,28 @@ describe('copyAndRemoveElement', function() {
     });
 });
 
+
+// test the uniquify function
+describe('uniquify', function() {
+    
+    //Test special edgecasses
+    it('test edge cases', function() {
+        expect(uniquify(undefined))    .toStrictEqual(undefined);
+        expect(uniquify(null))         .toStrictEqual(null);
+        expect(uniquify([]))           .toStrictEqual([]);
+    });
+
+    // test a "normal" run of the function
+    it('test "normal" cases', function() { 
+        expect(uniquify(['a']))                     .toStrictEqual(['a']);
+        expect(uniquify(['a', 'b']).sort())         .toStrictEqual(['a','b'].sort());
+        expect(uniquify(['a', 'a']).sort())         .toStrictEqual(['a'].sort());
+        expect(uniquify(['a', 'b', 'b']).sort())    .toStrictEqual(['a','b'].sort());
+
+        expect(uniquify(['b', 'b', 'b']).sort())    .toStrictEqual(['b'].sort());
+        expect(uniquify(['a', 'b', 'c']).sort())    .toStrictEqual(['a','b', 'c'].sort());
+    });
+});
 
 // test the buildPermutations function
 describe('buildPermutations', function() {

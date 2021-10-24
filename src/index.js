@@ -23,6 +23,15 @@ function copyAndRemoveElement(array, index) {
 }
 
 /**
+ * get an array, and ruturn this array with only unique items [set]
+ * @param {*} array the array that needs ri be uniqify
+ * @returns the array onky with uniques element
+ */
+function uniquify(array) {
+    return Array.isArray(array) ? Array.from(new Set(array), x => x) : array;
+}
+
+/**
  * Recieve an array of chars, and return all of it's posibale permitations
  * @param {*} array an array og chars to buikd akk the string permutation from
  * @returns all of the posible strings that cab be created by permutations of the chars in the given array 
@@ -52,4 +61,4 @@ function buildPermutations(array) {
 
 
 // ----------------------------------------- export methods -----------------------------------------
-export {permutations, copyAndRemoveElement, buildPermutations}
+export {permutations, copyAndRemoveElement, uniquify, buildPermutations}
