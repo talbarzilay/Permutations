@@ -38,6 +38,10 @@ function uniquify(array) {
  */
 function buildPermutations(array) {
     const result = [];
+
+    if(!Array.isArray(array)){
+        return array;
+    }
   
     // Stopping condition
     if(array.length === 0) {
@@ -55,7 +59,7 @@ function buildPermutations(array) {
         }
     }
  
-  return result;
+  return uniquify(result);
 }
 
 

@@ -87,10 +87,10 @@ describe('buildPermutations', function() {
     it('test "normal" cases', function() {
         expect(buildPermutations(['a']))                .toStrictEqual(['a']);
         expect(buildPermutations(['a', 'a']))           .toStrictEqual(['aa']);
-        expect(buildPermutations(['a', 'b']).sort())    .toStrictEqual(['aa', 'ba'].sort());
-        expect(buildPermutations(['b', 'a']).sort())    .toStrictEqual(['aa', 'ba'].sort());
+        expect(buildPermutations(['a', 'b']).sort())    .toStrictEqual(['ba', 'ab'].sort());
+        expect(buildPermutations(['b', 'a']).sort())    .toStrictEqual(['ab', 'ba'].sort());
 
-        expect(buildPermutations(['b', 'a', 'c']).sort())    .toStrictEqual(['caa', 'cba', 'aca', 'bca', 'aac', 'bac'].sort());
+        expect(buildPermutations(['b', 'a', 'c']).sort())    .toStrictEqual(['cab', 'cba', 'acb', 'bca', 'abc', 'bac'].sort());
         expect(buildPermutations(['b', 'a', 'a']).sort())    .toStrictEqual(['baa', 'aba', 'aab'].sort());
     });
 });
