@@ -110,3 +110,6 @@ describe('buildPermutations', () => {
         expect(buildPermutations(['b', 'a', 'a']).sort())    .toStrictEqual(['baa', 'aba', 'aab'].sort());
     });
 });
+
+
+console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Tests are done! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
